@@ -130,3 +130,46 @@ Route::get('tni/{nama?}/{bb?}/{umur?}', function($a = null, $b = null, $c = null
         echo ' ' .$pangkat;
     }
 }); 
+
+//akses model post
+Route::get('testmodel', function(){
+    $query = App\Post::all();
+    return $query;
+});
+
+Route::get('testmodelsiswa', function(){
+    $query = App\Student::all();
+    return $query;
+});
+
+Route::get('testmodel/id', function(){
+    $query = App\Post::find(1);
+    return $query;
+});
+
+Route::get('testmodel/title', function(){
+    $query = App\Post::where('title','like','%cepat nikah%')->get();
+    return $query;
+});
+
+Route::get('testmodel/ubah', function(){
+    $post = App\Post::find(1);
+    $post->title = "Ciri Keluarga Sakinah";
+    $post->save();
+    return $post;
+});
+
+Route::get('testmodel/hapus', function(){
+    $post = App\Post::find(1);
+    $post->delete();
+});
+
+Route::get('testmodel/tambah    ', function(){
+    $post = new App\Post;
+    $post->title = "7 Amalan Pembuka Jodoh";
+    $post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
+    $post->save();
+    return $post;
+});
+
+
