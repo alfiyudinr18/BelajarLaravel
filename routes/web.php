@@ -172,4 +172,28 @@ Route::get('testmodel/tambah    ', function(){
     return $post;
 });
 
+Route::get('data-barang/ambil', function(){
+    $query = App\Barang::all()->take(3);
+    return $query;
+});
+
+Route::get('data-barang/select', function(){
+    $query = App\Barang::select('nama_barang', 'kode_barang', 'jumlah_barang')->first();
+    return $query;
+});
+
+Route::get('data-barang/tambah/{nama_barang}/{kode_barang}/{jumlah_barang}/{harga_barang}/{jenis_barang}/{merk_barang}/{deskripsi_barang}', 
+    function($nama_barang, $kode_barang, $jumlah_barang, $harga_barang, $jenis_barang, $merk_barang, $deskripsi_barang){
+    $post = new App\Barang;
+    $post->nama_barang = $nama_barang;
+    $post->kode_barang = $kode_barang;
+    $post->jumlah_barang = $jumlah_barang;
+    $post->harga_barang = $harga_barang;
+    $post->jenis_barang = $jenis_barang;
+    $post->merk_barang = $merk_barang;
+    $post->deskripsi_barang = $deskripsi_barang;
+    $post->save();
+    return $post;
+});
+
 
