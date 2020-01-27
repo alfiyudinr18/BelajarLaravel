@@ -178,7 +178,7 @@ Route::get('data-barang/ambil', function(){
 });
 
 Route::get('data-barang/select', function(){
-    $query = App\Barang::select('nama_barang', 'kode_barang', 'jumlah_barang')->first();
+    $query = App\Barang::select('nama_barang', 'kode_barang', 'jumlah_barang')->first();//take(3)->get()
     return $query;
 });
 

@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
             StudentSeeder::class,
             BarangSeeder::class
         ]);
+        factory(App\Tabungan::class, 100)->create();
+        factory(App\Customer::class, 1000)->create();
     }
 }
