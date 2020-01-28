@@ -164,7 +164,7 @@ Route::get('testmodel/hapus', function(){
     $post->delete();
 });
 
-Route::get('testmodel/tambah    ', function(){
+Route::get('testmodel/tambah', function(){
     $post = new App\Post;
     $post->title = "7 Amalan Pembuka Jodoh";
     $post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
@@ -196,4 +196,11 @@ Route::get('data-barang/tambah/{nama_barang}/{kode_barang}/{jumlah_barang}/{harg
     return $post;
 });
 
+Route::get('halo', 'LatihanController@halo');
+Route::get('tambah/{a?}/{b?}', 'LatihanController@pertambahan');
+Route::get('kurang/{a?}/{b?}', 'LatihanController@pengurangan');
+Route::get('kali/{a?}/{b?}', 'LatihanController@perkalian');
+Route::get('bagi/{a?}/{b?}', 'LatihanController@pembagian');
+Route::get('data-1', 'LatihanController@loop');
+Route::get('data-2', 'LatihanController@loop2');
 
