@@ -14,7 +14,6 @@ $factory->define(Customer::class, function (Faker $faker) {
         'country' => $faker->country,
         'city' => $faker->city,
         'address' => $faker->address,
-        'country' => $faker->country,
         'contract_number' => $faker->e164PhoneNumber
     ];
 });

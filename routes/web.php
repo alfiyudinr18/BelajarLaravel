@@ -196,11 +196,23 @@ Route::get('data-barang/tambah/{nama_barang}/{kode_barang}/{jumlah_barang}/{harg
     return $post;
 });
 
-Route::get('halo', 'LatihanController@halo');
-Route::get('tambah/{a?}/{b?}', 'LatihanController@pertambahan');
-Route::get('kurang/{a?}/{b?}', 'LatihanController@pengurangan');
-Route::get('kali/{a?}/{b?}', 'LatihanController@perkalian');
-Route::get('bagi/{a?}/{b?}', 'LatihanController@pembagian');
-Route::get('data-1', 'LatihanController@loop');
-Route::get('data-2', 'LatihanController@loop2');
+Route::get('/halo', 'LatihanController@halo');
+Route::get('/tambah/{a?}/{b?}', 'LatihanController@pertambahan');
+Route::get('/kurang/{a?}/{b?}', 'LatihanController@pengurangan');
+Route::get('/kali/{a?}/{b?}', 'LatihanController@perkalian');
+Route::get('/bagi/{a?}/{b?}', 'LatihanController@pembagian');
+Route::get('/data-1', 'LatihanController@loop');
+Route::get('/data-2', 'LatihanController@loop2');
+//CRUD Tabungan
+Route::get('/tabungan', 'TabunganController@index');
+Route::get('/tabungan/{id}', 'TabunganController@show');
+Route::get('/tabungan-tambah/{nis}/{nama}/{kelas}/{jml}', 'TabunganController@store');
+Route::get('/tabungan-edit/{id}/{nis?}/{nama?}/{kelas?}/{jml?}', 'TabunganController@edit');
+Route::get('/tabungan-hapus/{id}', 'TabunganController@hapus');
+//CRUD Costumer
+Route::get('/customer', 'CustomerController@index');
+Route::get('/customer/{id}', 'CustomerController@show');
+Route::get('/customer-tambah/{code_customer}/{name}/{email}/{country}/{city?}/{address?}/{contract_number?}', 'CustomerController@store');
+Route::get('/customer-edit/{id}/{code_customer?}/{name?}/{email?}/{country?}/{city?}/{address?}/{contract_number?}', 'CustomerController@edit');
+Route::get('/customer-hapus/{id}', 'CustomerController@hapus');
 

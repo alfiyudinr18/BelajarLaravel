@@ -103,61 +103,43 @@ class LatihanController extends Controller
 
     public function loop2(){
         $data = [
-            ['Nama'=>'Angsam','Agama'=>'Hindhu','Alamat'=>'Rancamanyar','JK'=>'Laki-laki','Jabatan'=>'Manager','Jamkerja'=>200],
-            ['Nama'=>'Jay Pro','Agama'=>'Islam','Alamat'=>'Bojong','JK'=>'Laki-laki','Jabatan'=>'Staff','Jamkerja'=>250],
-            ['Nama'=>'Restu','Agama'=>'Islam','Alamat'=>'Jakarta','JK'=>'Perempuan','Jabatan'=>'Sekretaris','Jamkerja'=>150],
-            ['Nama'=>'David','Agama'=>'Kristen','Alamat'=>'Medan','JK'=>'Laki-laki','Jabatan'=>'Staff','Jamkerja'=>300],
-            ['Nama'=>'Kabur','Agama'=>'Budha','Alamat'=>'Bogor','JK'=>'Perempuan','Jabatan'=>'Manager','Jamkerja'=>100]
+            ['Nama'=>'Angsam','Agama'=>'Hindhu','Alamat'=>'Rancamanyar','JK'=>'Laki-laki','Jabatan'=>'Manager','Jamkerja'=>210],
+            ['Nama'=>'Jay Pro','Agama'=>'Islam','Alamat'=>'Bojong','JK'=>'Laki-laki','Jabatan'=>'Staff','Jamkerja'=>100],
+            ['Nama'=>'Kabur','Agama'=>'Budha','Alamat'=>'Bogor','JK'=>'Perempuan','Jabatan'=>'Sekretaris','Jamkerja'=>280]
         ];
         foreach($data as $val => $key){
             if($key['Jabatan'] == 'Manager'){
                 $gaji = 5000000;
-                if($key['Jamkerja']>=250){
-                    $jamker = $gaji*10/100;
-                }
-                elseif($key['Jamkerja']>=200){
-                    $jamker = $gaji*5/100;
-                }
-                else{
-                    $jamker = 0;
-                }
-                
             }
             elseif($key['Jabatan'] == 'Sekretaris'){
                 $gaji = 3500000;
-                if($key['Jamkerja']>=250){
-                    $jamker = $gaji*10/100;
-                }
-                elseif($key['Jamkerja']>=200){
-                    $jamker = $gaji*5/100;
-                }
-                else{
-                    $jamker = 0;
-                }
-                
             }
             elseif($key['Jabatan'] == 'Staff'){
                 $gaji = 2500000;
-                if($key['Jamkerja']>=250){
-                    $jamker = $gaji*10/100;
-                }
-                elseif($key['Jamkerja']>=200){
-                    $jamker = $gaji*5/100;
-                }
-                else{
-                    $jamker = 0;
-                }
-                
             }
-            $gajibersih = $gaji+$jamker;
+            if($key['Jamkerja']>=250){
+                $bonus = $gaji*10/100;
+            }
+            elseif($key['Jamkerja']>=200){
+                $bonus = $gaji*5/100;
+            }
+            else{
+                $bonus = 0;
+            }
+            $gajibersih = $gaji+$bonus;
             $potongangaji = $gajibersih*2.5/100;
             $gajitotal = $gajibersih - $potongangaji;
-            echo "Nama : " . $key['Nama'] .
-            "<br>Agama : " . $key['Agama'] .
-            "<br>Alamat : " . $key['Alamat'] .
-            "<br>Jenis Kelamin : " . $key['JK'] .
-            "<br>Jabatan : " . $key['Jabatan'] .
-            "<br>Gaji Total : ". $gajitotal .'<hr>';
+
+            echo "Nama         : " . $key['Nama'] . "<br>" .
+                "Agama         : " . $key['Agama'] . "<br>" .
+                "Alamat        : " . $key['Alamat'] . "<br>" .
+                "Jenis Kelamin : " . $key['JK'] . "<br>" .
+                "Jabatan       : " . $key['Jabatan'] . "<br>" .
+                "Gaji          : " . $gaji . "<br>" .
+                "Jam Kerja     : " . $key['Jamkerja'] . "<br>" .
+                "PPN           : " . $potongangaji . "<br>" .
+                "Bonus         : " . $bonus . "<br>" .
+                "Gaji Total    : " . $gajitotal .'<hr>';
         }
     }
 }
