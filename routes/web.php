@@ -215,4 +215,8 @@ Route::get('/customer/{id}', 'CustomerController@show');
 Route::get('/customer-tambah/{code_customer}/{name}/{email}/{country}/{city?}/{address?}/{contract_number?}', 'CustomerController@store');
 Route::get('/customer-edit/{id}/{code_customer?}/{name?}/{email?}/{country?}/{city?}/{address?}/{contract_number?}', 'CustomerController@edit');
 Route::get('/customer-hapus/{id}', 'CustomerController@hapus');
+//passing Data
+Route::get('pass','PracticeController@pass');
+Route::get('pass1','PracticeController@pass1');
+Route::get('pass2','PracticeController@pass2');
 
