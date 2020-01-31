@@ -219,4 +219,8 @@ Route::get('/customer-hapus/{id}', 'CustomerController@hapus');
 Route::get('pass','PracticeController@pass');
 Route::get('pass1','PracticeController@pass1');
 Route::get('pass2','PracticeController@pass2');
+Route::get('pass3/{id}','PracticeController@pass3');
+//passing Data
+Route::get('barang','BarangController@index');
+Route::get('tampil-barang/{id}','BarangController@show');
 

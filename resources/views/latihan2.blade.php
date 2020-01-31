@@ -12,8 +12,17 @@
         Nis : {{ $value->nis }}<br>
         Nama : {{ $value->nama }}<br>
         Kelas : {{ $value->kelas }}<br>
-        Jumlah : {{ $value->jml }}
-        <hr>
+        Jumlah : {{ $value->jml }}<br>
+    @if($value->jml >= 25000)
+        Paket = "C"
+    @elseif($value->jml >= 10000)
+        Paket = "B"
+    @elseif($value->jml >= 1000)
+        Paket = "A"
+    @else
+        Paket = "NULL"
+    @endif
+    <hr>
     @endforeach
 </body>
 </html>
